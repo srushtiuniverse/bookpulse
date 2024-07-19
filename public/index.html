@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book pulse</title>
@@ -8,11 +9,12 @@
 </head>
 <body>
     <div class="container mt-5">
-        <h1>book pulse</h1>
-        <p>check how popular the book you are reading is</p>
-        <input type="text" id="searchInput" class="form-control mt-3" placeholder="Enter book title">
-        <button onclick="searchBook()" class="btn btn-primary mt-2">Search</button>
-        <div id="results" class="mt-4"></div>
+        <h1>BookPulse</h1>
+        <div class="input-group mb-3">
+            <input type="text" id="searchInput" class="form-control" placeholder="Enter book title">
+            <button onclick="searchBook()" class="btn btn-primary">Search</button>
+        </div>
+        <div id="results" class="mt-4" style="display: none;"></div>
     </div>
     <script src="script.js"></script>
 </body>

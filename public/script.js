@@ -2,11 +2,14 @@ async function searchBook() {
     const query = document.getElementById('searchInput').value;
     const response = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
     const book = await response.json();
+    const resultsDiv = document.getElementById('results');
+    
     if (book.error) {
-        alert(book.error);
+        resultsDiv.innerHTML = `<p>${book.error}</p>`;
     } else {
         displayResults(book);
     }
+    resultsDiv.style.display = 'block';
 }
 
 function displayResults(book) {
@@ -16,8 +19,8 @@ function displayResults(book) {
 
     resultsDiv.innerHTML = `
         <h2>${book.title}</h2>
-        <p>Author: ${book.author}</p>
-        <p>Popularity: ${popularityPercentage.toFixed(2)}%</p>
-        <p>Positive Ratings: ${positiveRatingPercentage.toFixed(2)}%</p>
+        <p><strong>Author:</strong> ${book.author}</p>
+        <p><strong>Popularity:</strong> ${popularityPercentage.toFixed(2)}%</p>
+        <p><strong>Positive Ratings:</strong> ${positiveRatingPercentage.toFixed(2)}%</p>
     `;
 }
